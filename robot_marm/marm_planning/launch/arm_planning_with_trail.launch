@@ -1,0 +1,35 @@
+<launch>
+    <!-- 不使用仿真时间 -->
+    <param name="/use_sim_time" value="false" />
+
+    <!-- 启动 arbotix driver-->
+    <arg name="sim" default="true" />
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find marm_description)/urdf/arm.xacro'" />
+
+    <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
+        <rosparam file="$(find marm_description)/config/arm.yaml" command="load" />
+        <param name="sim" value="true"/>
+    </node>
+
+    <node name="gripper_controller" pkg="arbotix_controllers" type="gripper_controller">
+        <rosparam>
+            model: singlesided
+            invert: false
+            center: 0.0
+            pad_width: 0.004
+            finger_length: 0.08
+            min_opening: 0.0
+            max_opening: 0.06
+            joint: finger_joint1
+        </rosparam>
+    </node>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />
+
+    <include file="$(find marm_moveit_config)/launch/move_group.launch" />
+
+    <!-- 启动rviz可视化界面 -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find marm_planning)/config/arm_paths.rviz" required="true" />
+
+</launch>

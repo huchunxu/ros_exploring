@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="robot_vision" name="motion_detector" type="motion_detector.py" output="screen">
+        <remap from="input_rgb_image" to="/usb_cam/image_raw" />
+        <rosparam>
+            minArea: 500
+            threshold: 25
+        </rosparam>
+    </node>
+</launch>

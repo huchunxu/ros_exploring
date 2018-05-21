@@ -1,0 +1,6 @@
+<launch>
+
+  	<!-- rviz view /-->
+ 	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find robot_vision)/config/ork.rviz"/>
+
+</launch>

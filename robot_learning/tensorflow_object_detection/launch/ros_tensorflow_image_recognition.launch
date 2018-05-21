@@ -1,0 +1,7 @@
+<launch>
+
+    <node pkg="tensorflow_object_detection" name="ros_tensorflow_image_recognition" type="ros_tensorflow_image_recognition.py" output="screen">
+        <param name="image_topic" value="/usb_cam/image_raw" />
+    </node> 
+
+</launch>

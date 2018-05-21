@@ -1,0 +1,32 @@
+#
+# Wavefront material file
+# Converted by Meshlab Group
+#
+
+newmtl material_0
+Ka 0.200000 0.200000 0.200000
+Kd 0.639216 0.639216 0.639216
+Ks 1.000000 1.000000 1.000000
+Tr 1.000000
+illum 2
+Ns 0.000000
+map_Kd coke_uv_map.jpg
+
+newmtl material_1
+Ka 0.200000 0.200000 0.200000
+Kd 0.639216 0.639216 0.639216
+Ks 1.000000 1.000000 1.000000
+Tr 1.000000
+illum 2
+Ns 0.000000
+map_Kd can_ring_pull_end_centre.png
+
+newmtl material_2
+Ka 0.200000 0.200000 0.200000
+Kd 0.639216 0.639216 0.639216
+Ks 1.000000 1.000000 1.000000
+Tr 1.000000
+illum 2
+Ns 0.000000
+map_Kd aluminum.jpg
+

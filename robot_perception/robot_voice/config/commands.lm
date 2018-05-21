@@ -1,0 +1,100 @@
+Language model created by QuickLM on Thu Jun 22 10:27:10 EDT 2017
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 15 sentences and 19 words
+
+\data\
+ngram 1=19
+ngram 2=32
+ngram 3=26
+
+\1-grams:
+-0.8731 </s> -0.3010
+-0.8731 <s> -0.2386
+-2.0492 BACK -0.2386
+-2.0492 BACKWARD -0.2386
+-1.7482 DOWN -0.2386
+-2.0492 FASTER -0.2386
+-2.0492 FORWARD -0.2386
+-1.2711 GO -0.2688
+-2.0492 HALT -0.2386
+-1.7482 LEFT -0.2386
+-1.7482 RIGHT -0.2386
+-2.0492 SHUT -0.2932
+-2.0492 SLOW -0.2932
+-2.0492 SLOWER -0.2386
+-2.0492 SPEED -0.2971
+-2.0492 STOP -0.2386
+-2.0492 STRAIGHT -0.2386
+-1.7482 TURN -0.2852
+-2.0492 UP -0.2386
+
+\2-grams:
+-1.4771 <s> FASTER 0.0000
+-0.6990 <s> GO 0.0000
+-1.4771 <s> HALT 0.0000
+-1.4771 <s> SHUT 0.0000
+-1.4771 <s> SLOW 0.0000
+-1.4771 <s> SLOWER 0.0000
+-1.4771 <s> SPEED 0.0000
+-1.4771 <s> STOP 0.0000
+-1.1761 <s> TURN 0.0000
+-0.3010 BACK </s> -0.3010
+-0.3010 BACKWARD </s> -0.3010
+-0.3010 DOWN </s> -0.3010
+-0.3010 FASTER </s> -0.3010
+-0.3010 FORWARD </s> -0.3010
+-1.0792 GO BACK 0.0000
+-1.0792 GO BACKWARD 0.0000
+-1.0792 GO FORWARD 0.0000
+-1.0792 GO LEFT 0.0000
+-1.0792 GO RIGHT 0.0000
+-1.0792 GO STRAIGHT 0.0000
+-0.3010 HALT </s> -0.3010
+-0.3010 LEFT </s> -0.3010
+-0.3010 RIGHT </s> -0.3010
+-0.3010 SHUT DOWN 0.0000
+-0.3010 SLOW DOWN 0.0000
+-0.3010 SLOWER </s> -0.3010
+-0.3010 SPEED UP 0.0000
+-0.3010 STOP </s> -0.3010
+-0.3010 STRAIGHT </s> -0.3010
+-0.6021 TURN LEFT 0.0000
+-0.6021 TURN RIGHT 0.0000
+-0.3010 UP </s> -0.3010
+
+\3-grams:
+-0.3010 <s> FASTER </s>
+-1.0792 <s> GO BACK
+-1.0792 <s> GO BACKWARD
+-1.0792 <s> GO FORWARD
+-1.0792 <s> GO LEFT
+-1.0792 <s> GO RIGHT
+-1.0792 <s> GO STRAIGHT
+-0.3010 <s> HALT </s>
+-0.3010 <s> SHUT DOWN
+-0.3010 <s> SLOW DOWN
+-0.3010 <s> SLOWER </s>
+-0.3010 <s> SPEED UP
+-0.3010 <s> STOP </s>
+-0.6021 <s> TURN LEFT
+-0.6021 <s> TURN RIGHT
+-0.3010 GO BACK </s>
+-0.3010 GO BACKWARD </s>
+-0.3010 GO FORWARD </s>
+-0.3010 GO LEFT </s>
+-0.3010 GO RIGHT </s>
+-0.3010 GO STRAIGHT </s>
+-0.3010 SHUT DOWN </s>
+-0.3010 SLOW DOWN </s>
+-0.3010 SPEED UP </s>
+-0.3010 TURN LEFT </s>
+-0.3010 TURN RIGHT </s>
+
+\end\

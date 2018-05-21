@@ -1,0 +1,11 @@
+<launch>
+
+    <param name="aiml_path" value="$(find robot_voice)/data" />
+    <node name="aiml_voice_server" pkg="robot_voice" type="aiml_voice_server.py" output="screen" />
+
+    <include file="$(find sound_play)/soundplay_node.launch"></include>
+    <node name="aiml_tts" pkg="robot_voice" type="aiml_tts.py" output="screen" />
+
+    <node name="aiml_voice_recognizer" pkg="robot_voice" type="aiml_voice_recognizer.py" output="screen" />
+    
+</launch>

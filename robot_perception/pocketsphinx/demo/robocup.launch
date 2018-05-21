@@ -1,0 +1,9 @@
+<launch>
+
+  <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+    <param name="lm" value="$(find robot_voice)/config/pocketsphinx-en/model/lm/en/tidigits.DMP"/>
+    <param name="dict" value="$(find robot_voice)/config/pocketsphinx-en/model/lm/en/tidigits.dic"/>
+    <param name="hmm" value="$(find robot_voice)/config/pocketsphinx-en/model/hmm/en/tidigits"/>
+  </node>
+
+</launch>

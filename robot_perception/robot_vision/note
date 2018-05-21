@@ -1,0 +1,6 @@
+roslaunch robot_vision uvc_camera_with_calibration.launch
+roslaunch robot_vision ar_track_camera.launch
+rostopic echo /ar_pose_marker
+
+roslaunch robot_vision freenect.launch
+roslaunch robot_vision ar_track_kinect.launch

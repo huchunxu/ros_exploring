@@ -1,0 +1,8 @@
+<launch>
+
+    <include file="$(find mrobot_navigation)/launch/gmapping.launch"/>
+
+    <!-- 启动rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mrobot_navigation)/rviz/gmapping.rviz"/>
+
+</launch>

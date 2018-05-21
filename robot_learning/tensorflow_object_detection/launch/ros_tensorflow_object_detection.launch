@@ -1,0 +1,8 @@
+<launch>
+
+    <node pkg="tensorflow_object_detection" name="ros_tensorflow_object_detection" type="ros_tensorflow_object_detection.py" output="screen">
+        <param name="image_topic" value="/usb_cam/image_raw" />
+        <param name="model_path" value="$(find tensorflow_object_detection)/object_detection" />
+    </node> 
+
+</launch>

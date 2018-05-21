@@ -1,0 +1,7 @@
+<launch>
+	<node name="recognizer_1" pkg="pocketsphinx" type="recognizer.py" output="screen">
+		<param name="mic_name" value="alsa_input.usb-Logitech_Logitech_Wireless_Headset-00-Headset.analog-mono"/>
+		<param name="lm" value="$(find pocketsphinx)/demo/robocup.lm"/>
+		<param name="dict" value="$(find pocketsphinx)/demo/robocup.dic"/>
+	</node>
+</launch>

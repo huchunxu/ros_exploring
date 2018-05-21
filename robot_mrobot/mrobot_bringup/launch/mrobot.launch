@@ -1,0 +1,16 @@
+<launch>
+
+    <!-- 启动MRobot -->
+    <node pkg="mrobot_bringup" type="mrobot_bringup" name="mrobot_bringup" output="screen" />
+
+    <!-- 加载机器人模型参数 -->
+    <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find mrobot_description)/urdf/mrobot_with_kinect.urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />  
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="state_publisher">
+        <param name="publish_frequency" type="double" value="5.0" />
+    </node>
+
+</launch>

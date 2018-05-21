@@ -1,0 +1,9 @@
+<library path="lib/librviz_teleop_commander">
+    <class name="rviz_teleop_commander/TeleopPanel"
+           type="rviz_teleop_commander::TeleopPanel"
+           base_class_type="rviz::Panel">
+        <description>
+            A panel widget allowing simple diff-drive style robot base control.
+        </description>
+    </class>
+</library>

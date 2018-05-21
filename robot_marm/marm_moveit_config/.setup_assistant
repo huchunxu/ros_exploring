@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: marm_description
+    relative_path: urdf/arm.xacro
+  SRDF:
+    relative_path: config/arm.srdf
+  CONFIG:
+    author_name: Hu Chunxu
+    author_email: huchunxu@hust.edu.cn
+    generated_timestamp: 1501848702

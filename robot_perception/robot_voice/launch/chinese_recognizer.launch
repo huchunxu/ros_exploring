@@ -1,0 +1,9 @@
+<launch>
+
+    <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+        <param name="lm" value="$(find robot_voice)/config/pocketsphinx-cn/model/lm/zh_CN/gigatdt.5000.DMP"/>
+        <param name="dict" value="$(find robot_voice)/config/pocketsphinx-cn/model/lm/zh_CN/mandarin_notone.dic"/>
+        <param name="hmm" value="$(find robot_voice)/config/pocketsphinx-cn/model/hmm/zh/tdt_sc_8k"/>
+    </node>
+  
+</launch>

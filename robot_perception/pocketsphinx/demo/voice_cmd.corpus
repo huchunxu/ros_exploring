@@ -1,0 +1,15 @@
+forward
+left
+right
+back
+backward
+stop
+move forward
+move right
+move left
+move back
+move backward
+halt
+half speed
+full speed
+

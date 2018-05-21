@@ -1,0 +1,8 @@
+<launch>
+
+    <node pkg="tensorflow_mnist" name="ros_tensorflow_mnist" type="ros_tensorflow_mnist.py" output="screen">
+        <param name="image_topic" value="/usb_cam/image_raw" />
+        <param name="model_path" value="$(find tensorflow_mnist)/model" />
+    </node> 
+
+</launch>

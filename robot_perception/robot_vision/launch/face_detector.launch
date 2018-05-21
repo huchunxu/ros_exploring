@@ -1,0 +1,13 @@
+<launch>
+    <node pkg="robot_vision" name="face_detector" type="face_detector.py" output="screen">
+        <remap from="input_rgb_image" to="/usb_cam/image_raw" />
+        <rosparam>
+            haar_scaleFactor: 1.2
+            haar_minNeighbors: 2
+            haar_minSize: 40
+            haar_maxSize: 60
+        </rosparam>
+        <param name="cascade_1" value="$(find robot_vision)/data/haar_detectors/haarcascade_frontalface_alt.xml" />
+        <param name="cascade_2" value="$(find robot_vision)/data/haar_detectors/haarcascade_profileface.xml" />
+    </node>
+</launch>

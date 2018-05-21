@@ -1,0 +1,13 @@
+git clone https://github.com/tensorflow/models/
+sudo python setup.py build
+sudo python setup.py install
+
+protoc object_detection/protos/*.proto --python_out=.
+export PYTHONPATH="$PYTHONPATH:/home/hcx/tensorflow/models/slim"
+
+roslaunch usb_cam usb_cam-test.launch
+roslaunch tensorflow_object_detection ros_tensorflow_object_detection.launch
+
+roslaunch usb_cam usb_cam-test.launch
+roslaunch tensorflow_object_detection ros_tensorflow_image_recognition.launch
+rostopic echo /result

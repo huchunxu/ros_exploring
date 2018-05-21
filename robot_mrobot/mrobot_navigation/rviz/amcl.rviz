@@ -1,0 +1,607 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Marker1/Namespaces1
+        - /Inflated Obstacles1
+      Splitter Ratio: 0.652661
+    Tree Height: 843
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+    Name: Tool Properties
+    Splitter Ratio: 0.428571
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.6
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 25; 25; 26
+      Enabled: false
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 80
+      Reference Frame: odom
+      Value: false
+    - Angle Tolerance: 0.1
+      Class: rviz/Odometry
+      Color: 221; 200; 14
+      Enabled: false
+      Keep: 100
+      Length: 0.7
+      Name: Odometry
+      Position Tolerance: 0.1
+      Topic: /odom
+      Value: false
+    - Angle Tolerance: 0.1
+      Class: rviz/Odometry
+      Color: 255; 25; 0
+      Enabled: false
+      Keep: 100
+      Length: 0.6
+      Name: Odometry EKF
+      Position Tolerance: 0.1
+      Topic: /odom
+      Value: false
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        CameraBottom_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        CameraTop_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ChestButton_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Head:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        HeadTouchFront_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        HeadTouchMiddle_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        HeadTouchRear_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ImuTorsoAccelerometer_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ImuTorsoGyrometer_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LAnklePitch:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LBicep:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LElbow:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LFinger11_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LFinger12_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LFinger13_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LFinger21_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LFinger22_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LFinger23_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LFootBumperLeft_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LFootBumperRight_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LForeArm:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LFsrFL_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LFsrFR_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LFsrRL_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LFsrRR_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LHandTouchBack_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LHandTouchLeft_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LHandTouchRight_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LHip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LInfraRed_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LPelvis:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LShoulder:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LSonar_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        LThigh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LThumb1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LThumb2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        LTibia:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        Link Tree Style: Links in Alphabetic Order
+        MicroFrontCenter_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        MicroRearCenter_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        MicroSurroundLeft_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        MicroSurroundRight_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        Neck:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RAnklePitch:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RBicep:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RElbow:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RFinger11_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RFinger12_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RFinger13_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RFinger21_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RFinger22_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RFinger23_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RFootBumperLeft_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RFootBumperRight_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RForeArm:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RFsrFL_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RFsrFR_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RFsrRL_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RFsrRR_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RHandTouchBack_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RHandTouchLeft_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RHandTouchRight_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RHip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RInfraRed_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RPelvis:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RShoulder:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RSonar_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        RThigh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RThumb1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RThumb2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RTibia:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        gaze:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        l_ankle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        l_gripper:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        l_sole:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        l_wrist:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        r_ankle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        r_gripper:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        r_sole:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        r_wrist:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        torso:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 0.7
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: true
+      Enabled: true
+      Name: Map
+      Topic: /map
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 255; 0; 0
+      Enabled: true
+      Name: Local Plan
+      Topic: /move_base/TrajectoryPlannerROS/local_plan
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 0; 213; 0
+      Enabled: true
+      Name: Global Plan
+      Topic: /move_base/TrajectoryPlannerROS/global_plan
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /waypoint_markers
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 0.304
+        Min Value: 0.304
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Spheres
+      Topic: /scan
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.1
+      Class: rviz/Pose
+      Color: 0; 255; 0
+      Enabled: true
+      Head Length: 0.1
+      Head Radius: 0.15
+      Name: Mouse Goal
+      Shaft Length: 0.5
+      Shaft Radius: 0.03
+      Shape: Arrow
+      Topic: /move_base/current_goal
+      Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.1
+      Class: rviz/Pose
+      Color: 0; 255; 0
+      Enabled: true
+      Head Length: 0.1
+      Head Radius: 0.15
+      Name: Goal Pose
+      Shaft Length: 0.5
+      Shaft Radius: 0.03
+      Shape: Arrow
+      Topic: /move_base_simple/goal
+      Value: true
+    - Alpha: 0.3
+      Class: rviz/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: true
+      Name: Inflated Obstacles
+      Topic: /move_base/local_costmap/costmap
+      Value: true
+    - Arrow Length: 0.3
+      Class: rviz/PoseArray
+      Color: 255; 25; 0
+      Enabled: false
+      Name: Pose Array
+      Topic: ""
+      Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 0; 0; 0
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/MoveCamera
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/Select
+    - Class: rviz/SetInitialPose
+      Topic: /initialpose
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 7.25438
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 1.77945
+        Y: 1.43837
+        Z: 0.112671
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.734797
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 5.45319
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1056
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000012d000003dafc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000198000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000028000003da000000dd00ffffff000000010000010f000003dafc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000028000003da000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a0000002f600fffffffb0000000800540069006d0065010000000000000450000000000000000000000538000003da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1920
+  X: 0
+  Y: 24

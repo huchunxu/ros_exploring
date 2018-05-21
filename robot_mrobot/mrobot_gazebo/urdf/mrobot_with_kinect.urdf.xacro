@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<robot name="mrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find mrobot_gazebo)/urdf/mrobot_body.urdf.xacro" />
+	<xacro:include filename="$(find mrobot_gazebo)/urdf/kinect.xacro" />
+
+	<xacro:property name="kinect_offset_x" value="-0.06" />
+	<xacro:property name="kinect_offset_y" value="0" />
+	<xacro:property name="kinect_offset_z" value="0.035" />
+
+	<!-- Body of mrobot, with plates, standoffs and Create (including sim sensors) -->
+	<mrobot_body/>
+
+	<!-- Attach the Kinect -->
+	<joint name="kinect_frame_joint" type="fixed">
+		<origin xyz="${kinect_offset_x} ${kinect_offset_y} ${kinect_offset_z}" rpy="0 0 0" />
+		<parent link="plate_2_link"/>
+		<child link="camera_link"/>
+	</joint>
+	<xacro:kinect_camera prefix="camera"/>
+
+</robot>

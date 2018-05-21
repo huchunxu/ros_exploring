@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="laser">
+
+	<xacro:macro name="rplidar" params="prefix:=laser">
+		<link name="${prefix}_link">
+			<inertial>
+				<mass value="0.1" />
+				<origin xyz="0 0 0" />
+				<inertia ixx="0.01" ixy="0.0" ixz="0.0"
+						 iyy="0.01" iyz="0.0"
+						 izz="0.01" />
+			</inertial>
+
+			<visual>
+				<origin xyz=" 0 0 0 " rpy="0 0 0" />
+				<geometry>
+					<cylinder length="0.05" radius="0.05"/>
+				</geometry>
+				<material name="black"/>
+			</visual>
+
+			<collision>
+				<origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+				<geometry>
+					<cylinder length="0.06" radius="0.05"/>
+				</geometry>
+			</collision>
+		</link>
+	</xacro:macro>
+
+</robot>

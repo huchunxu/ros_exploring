@@ -1,0 +1,3 @@
+controllers: {
+   base_controller: {type: diff_controller, base_frame_id: base_footprint, base_width: 0.26, ticks_meter: 4100, Kp: 12, Kd: 12, Ki: 0, Ko: 50, accel_limit: 1.0 }
+}

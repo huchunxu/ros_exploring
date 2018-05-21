@@ -1,0 +1,11 @@
+<launch>
+
+    <include file="$(find mrobot_navigation)/launch/gmapping.launch"/>
+
+    <!-- 运行move_base节点 -->
+    <include file="$(find mrobot_navigation)/launch/move_base.launch" />
+
+    <!-- 运行rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mrobot_navigation)/rviz/nav.rviz"/>
+
+</launch>

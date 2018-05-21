@@ -1,0 +1,6 @@
+<launch>
+  <node name="mrobot_teleop" pkg="mrobot_teleop" type="mrobot_teleop.py" output="screen">
+    <param name="scale_linear" value="0.1" type="double"/>
+    <param name="scale_angular" value="0.4" type="double"/>
+  </node>
+</launch>

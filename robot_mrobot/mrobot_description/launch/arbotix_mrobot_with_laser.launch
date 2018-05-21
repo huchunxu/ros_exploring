@@ -1,0 +1,23 @@
+<launch>
+    <param name="/use_sim_time" value="false" />
+	
+	<!-- 加载机器人URDF/Xacro模型 -->
+    <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find mrobot_description)/urdf/mrobot_with_rplidar.urdf.xacro'" />
+	<arg name="gui" default="false" />
+
+	<param name="robot_description" command="$(arg urdf_file)" />
+	<param name="use_gui" value="$(arg gui)"/>
+
+	<node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
+        <rosparam file="$(find mrobot_description)/config/fake_mrobot_arbotix.yaml" command="load" />
+        <param name="sim" value="true"/>
+    </node>
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="20.0" />
+    </node>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find mrobot_description)/config/mrobot_arbotix.rviz" required="true" />
+</launch>

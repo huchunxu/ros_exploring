@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kinect_camera">
+
+    <xacro:macro name="kinect_camera" params="prefix:=camera">
+        <!-- Create kinect reference frame -->
+        <!-- Add mesh for kinect -->
+        <link name="${prefix}_link">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}"/>
+                <geometry>
+                    <mesh filename="package://mrobot_description/meshes/kinect.dae" />
+                </geometry>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.07 0.3 0.09"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="${prefix}_optical_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
+            <parent link="${prefix}_link"/>
+            <child link="${prefix}_frame_optical"/>
+        </joint>
+
+        <link name="${prefix}_frame_optical"/>
+
+        <gazebo reference="${prefix}_link">
+            <sensor type="depth" name="${prefix}">
+                <always_on>true</always_on>
+                <update_rate>20.0</update_rate>
+                <camera>
+                    <horizontal_fov>${60.0*M_PI/180.0}</horizontal_fov>
+                    <image>
+                        <format>R8G8B8</format>
+                        <width>640</width>
+                        <height>480</height>
+                    </image>
+                    <clip>
+                        <near>0.05</near>
+                        <far>8.0</far>
+                    </clip>
+                </camera>
+                <plugin name="kinect_${prefix}_controller" filename="libgazebo_ros_openni_kinect.so">
+                    <cameraName>${prefix}</cameraName>
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>10</updateRate>
+                    <imageTopicName>rgb/image_raw</imageTopicName>
+                    <depthImageTopicName>depth/image_raw</depthImageTopicName>
+                    <pointCloudTopicName>depth/points</pointCloudTopicName>
+                    <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+                    <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+                    <frameName>${prefix}_frame_optical</frameName>
+                    <baseline>0.1</baseline>
+                    <distortion_k1>0.0</distortion_k1>
+                    <distortion_k2>0.0</distortion_k2>
+                    <distortion_k3>0.0</distortion_k3>
+                    <distortion_t1>0.0</distortion_t1>
+                    <distortion_t2>0.0</distortion_t2>
+                    <pointCloudCutoff>0.4</pointCloudCutoff>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+    </xacro:macro>
+</robot>

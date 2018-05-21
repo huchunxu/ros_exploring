@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="mrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find mrobot_description)/urdf/mrobot_body.urdf.xacro" />
+	<xacro:include filename="$(find mrobot_description)/urdf/rplidar.xacro" />
+
+	<xacro:property name="rplidar_offset_x" value="0" />
+	<xacro:property name="rplidar_offset_y" value="0" />
+	<xacro:property name="rplidar_offset_z" value="0.028" />
+
+	<!-- MRobot机器人平台-->
+	<mrobot_body/>
+
+	<!-- rplidar -->
+	<joint name="rplidar_joint" type="fixed">
+		<origin xyz="${rplidar_offset_x} ${rplidar_offset_y} ${rplidar_offset_z}" rpy="0 0 0" />
+		<parent link="plate_2_link"/>
+		<child link="laser_link"/>
+	</joint>
+	<xacro:rplidar prefix="laser"/>
+
+</robot>

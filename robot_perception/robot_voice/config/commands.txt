@@ -1,0 +1,15 @@
+go forward
+go backward
+go back
+go left
+go right
+go straight
+turn left
+turn right
+faster
+speed up
+slower
+slow down
+stop
+halt
+shut down

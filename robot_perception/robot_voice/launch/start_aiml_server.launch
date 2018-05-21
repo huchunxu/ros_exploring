@@ -1,0 +1,6 @@
+<launch>
+
+    <param name="aiml_path" value="$(find robot_voice)/data" />
+    <node name="aiml_voice_server" pkg="robot_voice" type="aiml_voice_server.py" output="screen" />
+    
+</launch>

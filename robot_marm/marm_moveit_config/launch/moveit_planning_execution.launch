@@ -1,0 +1,17 @@
+<launch>
+ # The planning and execution components of MoveIt! configured to 
+ # publish the current configuration of the robot (simulated or real)
+ # and the current state of the world as seen by the planner
+ <include file="$(find marm_moveit_config)/launch/move_group.launch">
+  <arg name="publish_monitored_planning_scene" value="true" />
+ </include>
+ # The visualization component of MoveIt!
+ <include file="$(find marm_moveit_config)/launch/moveit_rviz.launch"/>
+
+  <!-- We do not have a robot connected, so publish fake joint states -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/> 
+    <rosparam param="/source_list">[/arm/joint_states]</rosparam>
+  </node>
+
+</launch>

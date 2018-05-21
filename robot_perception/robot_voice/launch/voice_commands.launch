@@ -1,0 +1,9 @@
+<launch>
+
+    <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+        <param name="lm" value="$(find robot_voice)/config/commands.lm"/>
+        <param name="dict" value="$(find robot_voice)/config/commands.dic"/>
+        <param name="hmm" value="$(find robot_voice)/config/pocketsphinx-en/model/hmm/en/hub4wsj_sc_8k"/>
+    </node>
+  
+</launch>

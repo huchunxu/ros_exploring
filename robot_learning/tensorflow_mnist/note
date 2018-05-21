@@ -1,0 +1,8 @@
+
+sudo apt-get install ros-indigo-cv-bridge ros-indigo-cv-camera
+
+//rosrun xfei_asr tts_subscribe_speak
+
+roslaunch usb_cam usb_cam-test.launch
+roslaunch tensorflow_mnist ros_tensorflow_mnist.launch
+rostopic echo /result

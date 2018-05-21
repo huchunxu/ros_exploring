@@ -1,0 +1,8 @@
+<library path="lib/libpluginlib_tutorials">
+    <class name="pluginlib_tutorials/regular_triangle" type="polygon_plugins::Triangle" base_class_type="polygon_base::RegularPolygon">
+        <description>This is a triangle plugin.</description>
+    </class>
+    <class name="pluginlib_tutorials/regular_square" type="polygon_plugins::Square" base_class_type="polygon_base::RegularPolygon">
+        <description>This is a square plugin.</description>
+    </class>
+</library>

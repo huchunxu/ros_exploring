@@ -1,0 +1,23 @@
+<launch>
+
+    <param name="use_sim_time" value="false" />
+
+    <!-- 设置地图的配置文件 -->
+    <arg name="map" default="gmapping_map.yaml" />
+
+    <!-- 运行地图服务器，并且加载设置的地图-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find mrobot_navigation)/maps/$(arg map)"/>
+
+    <!-- 运行move_base节点 -->
+    <include file="$(find mrobot_navigation)/launch/fake_move_base.launch" />
+
+    <!-- 运行虚拟定位，兼容AMCL输出 -->
+    <node pkg="fake_localization" type="fake_localization" name="fake_localization" output="screen" />
+
+    <!-- 对于虚拟定位，需要设置一个/odom与/map之间的静态坐标变换 -->
+    <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 0 /map /odom 100" />
+
+    <!-- 运行rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mrobot_navigation)/rviz/nav.rviz"/>
+
+</launch>

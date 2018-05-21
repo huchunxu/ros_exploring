@@ -1,0 +1,27 @@
+<launch>
+
+    <node pkg="tf" type="static_transform_publisher" name="world_to_cam" 
+          args="0 0 0.5 0 1.57 0 world camera_rgb_optical_frame 10" />
+
+    <arg name="marker_size" default="5.0" />
+    <arg name="max_new_marker_error" default="0.08" />
+    <arg name="max_track_error" default="0.2" />
+
+    <arg name="cam_image_topic" default="/camera/depth_registered/points" />
+    <arg name="cam_info_topic" default="/camera/rgb/camera_info" />
+    <arg name="output_frame" default="/camera_rgb_optical_frame" />
+
+    <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkers" respawn="false" output="screen">
+        <param name="marker_size" type="double" value="$(arg marker_size)" />
+        <param name="max_new_marker_error" type="double" value="$(arg max_new_marker_error)" />
+        <param name="max_track_error" type="double" value="$(arg max_track_error)" />
+        <param name="output_frame" type="string" value="$(arg output_frame)" />
+
+        <remap from="camera_image"  to="$(arg cam_image_topic)" />
+        <remap from="camera_info"   to="$(arg cam_info_topic)" />
+    </node>
+
+    <!-- rviz view /-->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find robot_vision)/config/ar_track_kinect.rviz"/>
+
+</launch>

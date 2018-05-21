@@ -1,0 +1,117 @@
+Language model created by QuickLM on Mon Jun 26 08:39:10 EDT 2017
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 12 sentences and 24 words
+
+\data\
+ngram 1=24
+ngram 2=38
+ngram 3=32
+
+\1-grams:
+-0.9927 </s> -0.3010
+-0.9927 <s> -0.2503
+-2.0719 AGE -0.2545
+-2.0719 ARE -0.2861
+-2.0719 AWAY -0.2545
+-1.7709 CAN -0.2861
+-2.0719 DO -0.2545
+-2.0719 GO -0.2973
+-2.0719 GOOGBYE -0.2545
+-2.0719 HELLO -0.2545
+-2.0719 HELP -0.2973
+-2.0719 HISTORY -0.2545
+-2.0719 HOW -0.2973
+-1.3729 IS -0.2822
+-2.0719 IT -0.2545
+-2.0719 ME -0.2545
+-2.0719 NAME -0.2545
+-2.0719 NAMELESS -0.2545
+-2.0719 THANK -0.2861
+-2.0719 TIME -0.2822
+-1.3729 WHAT -0.2705
+-2.0719 WHO -0.2822
+-1.4698 YOU -0.2462
+-1.7709 YOUR -0.2936
+
+\2-grams:
+-1.3802 <s> CAN 0.0000
+-1.3802 <s> GO 0.0000
+-1.3802 <s> GOOGBYE 0.0000
+-1.3802 <s> HELLO 0.0000
+-1.3802 <s> HOW 0.0000
+-1.3802 <s> THANK 0.0000
+-0.6812 <s> WHAT 0.0000
+-1.3802 <s> WHO 0.0000
+-0.3010 AGE </s> -0.3010
+-0.3010 ARE YOU -0.1761
+-0.3010 AWAY </s> -0.3010
+-0.3010 CAN YOU -0.1761
+-0.3010 DO </s> -0.3010
+-0.3010 GO AWAY 0.0000
+-0.3010 GOOGBYE </s> -0.3010
+-0.3010 HELLO </s> -0.3010
+-0.3010 HELP ME 0.0000
+-0.3010 HISTORY </s> -0.3010
+-0.3010 HOW ARE 0.0000
+-1.0000 IS HISTORY 0.0000
+-1.0000 IS IT 0.0000
+-1.0000 IS NAMELESS 0.0000
+-0.6990 IS YOUR 0.0000
+-0.3010 IT </s> -0.3010
+-0.3010 ME </s> -0.3010
+-0.3010 NAME </s> -0.3010
+-0.3010 NAMELESS </s> -0.3010
+-0.3010 THANK YOU -0.1761
+-0.3010 TIME IS -0.2553
+-1.0000 WHAT CAN 0.0000
+-0.5229 WHAT IS -0.1461
+-1.0000 WHAT TIME 0.0000
+-0.3010 WHO IS -0.2553
+-0.6021 YOU </s> -0.3010
+-0.9031 YOU DO 0.0000
+-0.9031 YOU HELP 0.0000
+-0.6021 YOUR AGE 0.0000
+-0.6021 YOUR NAME 0.0000
+
+\3-grams:
+-0.3010 <s> CAN YOU
+-0.3010 <s> GO AWAY
+-0.3010 <s> GOOGBYE </s>
+-0.3010 <s> HELLO </s>
+-0.3010 <s> HOW ARE
+-0.3010 <s> THANK YOU
+-1.0000 <s> WHAT CAN
+-0.5229 <s> WHAT IS
+-1.0000 <s> WHAT TIME
+-0.3010 <s> WHO IS
+-0.3010 ARE YOU </s>
+-0.6021 CAN YOU DO
+-0.6021 CAN YOU HELP
+-0.3010 GO AWAY </s>
+-0.3010 HELP ME </s>
+-0.3010 HOW ARE YOU
+-0.3010 IS HISTORY </s>
+-0.3010 IS IT </s>
+-0.3010 IS NAMELESS </s>
+-0.6021 IS YOUR AGE
+-0.6021 IS YOUR NAME
+-0.3010 THANK YOU </s>
+-0.3010 TIME IS IT
+-0.3010 WHAT CAN YOU
+-0.7782 WHAT IS HISTORY
+-0.4771 WHAT IS YOUR
+-0.3010 WHAT TIME IS
+-0.3010 WHO IS NAMELESS
+-0.3010 YOU DO </s>
+-0.3010 YOU HELP ME
+-0.3010 YOUR AGE </s>
+-0.3010 YOUR NAME </s>
+
+\end\

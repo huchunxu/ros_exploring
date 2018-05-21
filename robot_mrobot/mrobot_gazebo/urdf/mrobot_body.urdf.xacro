@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<robot name="mrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Defining the colors used in this robot -->
+    <material name="Black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+    <material name="White">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <material name="Blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+
+    <material name="Red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
+    <!-- PROPERTY LIST -->
+    <!--All units in m-kg-s-radians unit system -->
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+
+    <!-- Main body length, width, height and mass -->
+    <xacro:property name="base_mass"        value="0.5" /> 
+    <xacro:property name="base_link_radius" value="0.13"/>
+    <xacro:property name="base_link_length" value="0.005"/>
+
+    <xacro:property name="motor_x" value="-0.05"/>
+
+    <!-- Caster radius and mass -->
+    <xacro:property name="caster_radius"          value="0.016" /> 
+    <xacro:property name="caster_mass"            value="0.01" /> 
+    <xacro:property name="caster_joint_origin_x"  value="-0.12" />
+
+    <!-- Wheel radius, height and mass -->
+    <xacro:property name="wheel_radius" value="0.033" /> 
+    <xacro:property name="wheel_height" value="0.017" />
+    <xacro:property name="wheel_mass"   value="0.1" />
+
+    <!-- plate height and mass -->
+    <xacro:property name="plate_mass"   value="0.05"/>
+    <xacro:property name="plate_height" value="0.07"/>
+    <xacro:property name="standoff_x"   value="0.12"/>
+    <xacro:property name="standoff_y"   value="0.10"/>
+
+    <!-- Macro for inertia matrix -->
+    <xacro:macro name="sphere_inertial_matrix" params="m r">
+        <inertial>
+            <mass value="${m}" />
+            <inertia ixx="${2*m*r*r/5}" ixy="0" ixz="0"
+                iyy="${2*m*r*r/5}" iyz="0" 
+                izz="${2*m*r*r/5}" />
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="cylinder_inertial_matrix" params="m r h">
+        <inertial>
+            <mass value="${m}" />
+            <inertia ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+                iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+                izz="${m*r*r/2}" /> 
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="box_inertial_matrix" params="m w h d">
+        <inertial>
+            <mass value="${m}" />
+            <inertia ixx="${m*(h*h+d*d)/12}" ixy = "0" ixz = "0"
+                iyy="${m*(w*w+d*d)/12}" iyz = "0"
+                izz="${m*(w*w+h*h)/12}" /> 
+        </inertial>
+    </xacro:macro>
+
+    <!-- Macro for wheel joint -->
+    <xacro:macro name="wheel" params="lr translateY">
+        <!-- lr: left, right -->
+        <link name="wheel_${lr}_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="${M_PI/2} 0  0 " /> 
+                <geometry>
+                    <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+                </geometry>
+                <material name="Black" />
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="${M_PI/2} 0 0 " />
+                <geometry>
+                    <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+                </geometry>
+            </collision>
+            <cylinder_inertial_matrix  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+        </link>
+
+        <gazebo reference="wheel_${lr}_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <joint name="base_to_wheel_${lr}_joint" type="continuous">
+            <parent link="base_link"/>
+            <child link="wheel_${lr}_link"/>
+            <origin xyz="${motor_x} ${translateY * base_link_radius} 0" rpy="0 0 0" /> 
+            <axis xyz="0 1 0" rpy="0  0" />
+        </joint>
+
+        <!-- Transmission is important to link the joints and the controller -->
+        <transmission name="wheel_${lr}_joint_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="base_to_wheel_${lr}_joint" />
+            <actuator name="wheel_${lr}_joint_motor">
+                <hardwareInterface>VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <!-- Macro for caster joint -->
+    <xacro:macro name="caster" params="fb translateX">
+        <!-- fb: front, back -->
+        <link name="${fb}_caster_link">
+            <visual>
+                <origin xyz="0 0 0 " rpy="0 0 0" /> 
+                <geometry>
+                    <sphere radius="${caster_radius}" />
+                </geometry>
+                <material name="Black" />
+            </visual>  
+            <collision>
+                <geometry>
+                    <sphere radius="${caster_radius}" />
+                </geometry>
+                <origin xyz="0 0 0 " rpy="0 0 0" /> 
+            </collision>      
+            <sphere_inertial_matrix  m="${caster_mass}" r="${caster_radius}" />
+        </link>
+
+        <gazebo reference="${fb}_caster_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <joint name="base_to_${fb}_caster_joint" type="fixed">
+            <parent link="base_link"/>
+            <child link="${fb}_caster_link"/>
+            <origin xyz="${translateX*caster_joint_origin_x} 0 ${-caster_radius}" rpy="0 0 0"/>
+        </joint>
+    </xacro:macro>
+
+    <!-- Macro for plate joint -->
+    <xacro:macro name="plate" params="num parent">
+        <link name="plate_${num}_link">
+            <cylinder_inertial_matrix  m="0.1" r="${base_link_radius}" h="${base_link_length}" />
+
+            <visual>
+                <origin xyz=" 0 0 0 " rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="${base_link_length}" radius="${base_link_radius}"/>
+                </geometry>
+                <material name="yellow"/>
+            </visual>
+
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="${base_link_length}" radius="${base_link_radius}"/>
+                </geometry>
+            </collision>
+        </link>
+        <gazebo reference="plate_${num}_link">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+        <joint name="plate_${num}_joint" type="fixed">
+            <origin xyz="0 0 ${plate_height}" rpy="0 0 0" />
+            <parent link="${parent}"/>
+            <child link="plate_${num}_link" />
+        </joint>
+    </xacro:macro>
+
+    <!-- Macro for standoff joint -->
+    <xacro:macro name="mrobot_standoff_2in" params="parent number x_loc y_loc z_loc">
+        <joint name="standoff_2in_${number}_joint" type="fixed">
+            <origin xyz="${x_loc} ${y_loc} ${z_loc}" rpy="0 0 0" />
+            <parent link="${parent}"/>
+            <child link="standoff_2in_${number}_link" />
+        </joint>
+
+        <link name="standoff_2in_${number}_link">
+            <inertial>
+                <mass value="0.001" />
+                <origin xyz="0 0 0" />
+                <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+          iyy="0.0001" iyz="0.0"
+          izz="0.0001" />
+            </inertial>
+
+            <visual>
+                <origin xyz=" 0 0 0 " rpy="0 0 0" />
+                <geometry>
+                    <box size="0.01 0.01 0.07" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.16 0.17 0.15 0.9"/>
+                </material>
+            </visual>
+
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.01 0.01 0.07" />
+                </geometry>
+            </collision>
+        </link>
+    </xacro:macro>
+
+    <!-- BASE-FOOTPRINT -->
+    <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin -->
+    <xacro:macro name="mrobot_body">
+        <link name="base_footprint">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.001 0.001 0.001" />
+                </geometry>
+            </visual>
+        </link>
+
+        <joint name="base_footprint_joint" type="fixed">
+            <origin xyz="0 0 ${wheel_radius}" rpy="0 0 0" />
+            <parent link="base_footprint"/>
+            <child link="base_link" />
+        </joint>
+
+        <!-- BASE-LINK -->
+        <!--Actual body/chassis of the robot-->
+        <link name="base_link">
+            <cylinder_inertial_matrix  m="${base_mass}" r="${base_link_radius}" h="${base_link_length}" />
+            <visual>
+                <origin xyz=" 0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="${base_link_length}" radius="${base_link_radius}"/>
+                </geometry>
+                <material name="yellow" />
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="${base_link_length}" radius="${base_link_radius}"/>
+                </geometry>
+            </collision>   
+        </link>
+        <gazebo reference="base_link">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
+        <!-- Wheel Definitions -->
+        <wheel lr="right"  translateY="1" />
+        <wheel lr="left"  translateY="-1" />
+
+        <!-- Casters Definitions -->
+        <caster fb="front"  translateX="-1" />
+
+        <!-- plates and standoff Definitions -->
+        <mrobot_standoff_2in parent="base_link" number="1" x_loc="-${standoff_x/2 + 0.03}" y_loc="-${standoff_y - 0.03}" z_loc="${plate_height/2}"/>
+        <mrobot_standoff_2in parent="base_link" number="2" x_loc="-${standoff_x/2 + 0.03}" y_loc="${standoff_y - 0.03}" z_loc="${plate_height/2}"/>
+        <mrobot_standoff_2in parent="base_link" number="3" x_loc="${standoff_x/2}" y_loc="-${standoff_y}" z_loc="${plate_height/2}"/>
+        <mrobot_standoff_2in parent="base_link" number="4" x_loc="${standoff_x/2}" y_loc="${standoff_y}" z_loc="${plate_height/2}"/>
+        <mrobot_standoff_2in parent="standoff_2in_1_link" number="5" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
+        <mrobot_standoff_2in parent="standoff_2in_2_link" number="6" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
+        <mrobot_standoff_2in parent="standoff_2in_3_link" number="7" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
+        <mrobot_standoff_2in parent="standoff_2in_4_link" number="8" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
+
+        <!-- plate Definitions -->
+        <plate num="1"  parent="base_link" />
+        <plate num="2"  parent="plate_1_link" />
+
+        <!-- controller -->
+        <gazebo>
+            <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+                <rosDebugLevel>Debug</rosDebugLevel>
+                <publishWheelTF>true</publishWheelTF>
+                <robotNamespace>/</robotNamespace>
+                <publishTf>1</publishTf>
+                <publishWheelJointState>true</publishWheelJointState>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>100.0</updateRate>
+                <legacyMode>true</legacyMode>
+                <leftJoint>base_to_wheel_left_joint</leftJoint>
+                <rightJoint>base_to_wheel_right_joint</rightJoint>
+                <wheelSeparation>${base_link_radius*2}</wheelSeparation>
+                <wheelDiameter>${2*wheel_radius}</wheelDiameter>
+                <broadcastTF>1</broadcastTF>
+                <wheelTorque>30</wheelTorque>
+                <wheelAcceleration>1.8</wheelAcceleration>
+                <commandTopic>cmd_vel</commandTopic>
+                <odometryFrame>odom</odometryFrame> 
+                <odometryTopic>odom</odometryTopic> 
+                <robotBaseFrame>base_footprint</robotBaseFrame>
+            </plugin>
+        </gazebo> 
+
+    </xacro:macro>
+</robot>

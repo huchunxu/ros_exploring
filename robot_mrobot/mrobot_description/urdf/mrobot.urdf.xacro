@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="mrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find mrobot_description)/urdf/mrobot_body.urdf.xacro" />
+
+    <!-- MRobot机器人平台 -->
+    <mrobot_body/>
+
+</robot>

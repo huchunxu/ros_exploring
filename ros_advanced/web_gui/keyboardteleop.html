@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css"
+  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+
+<script src="http://cdn.robotwebtools.org/threejs/current/three.js"></script>
+<script src="http://cdn.robotwebtools.org/threejs/current/ColladaLoader.js"></script>
+<script src="http://cdn.robotwebtools.org/threejs/current/STLLoader.js"></script>
+<script src="http://cdn.robotwebtools.org/ColladaAnimationCompress/current/ColladaLoader2.js"></script>
+
+<script src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+
+<script src="http://cdn.robotwebtools.org/roslibjs/current/roslib.js"></script>
+<script src="http://cdn.robotwebtools.org/ros3djs/current/ros3d.min.js"></script>
+
+<script src="http://cdn.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.js"></script>
+
+<script>
+  /**
+   * Setup all GUI elements when the page is loaded. 
+   */
+
+  var teleop_topic = '/cmd_vel'
+  var base_frame = 'odom';
+
+  var init_flag = false
+
+function submit_values(){
+  teleop_topic = document.getElementById("tele_topic").value;
+  base_frame = document.getElementById("base_frame_name").value;
+
+  init_flag = true;
+  init();
+}
+
+function init() {
+
+	if(init_flag == true)
+	{
+		// Connecting to ROS.
+		var ros = new ROSLIB.Ros({
+			url : 'ws://localhost:9090'
+		});
+
+
+		// Initialize the teleop.
+		var teleop = new KEYBOARDTELEOP.Teleop({
+			ros : ros,
+			topic : teleop_topic
+		});
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+		var viewer = new ROS3D.Viewer({
+			background : 000,
+			divID : 'urdf',
+			width : 1280,
+			height : 600,
+			antialias : true
+
+		});
+
+		// Add a grid.
+		viewer.addObject(new ROS3D.Grid());
+
+		// Setup a client to listen to TFs.
+		var tfClient = new ROSLIB.TFClient({
+			ros : ros,
+			fixedFrame : base_frame,
+			angularThres : 0.01,
+			transThres : 0.01,
+			rate : 10.0
+		});
+
+		// Setup the URDF client.
+
+		var urdfClient = new ROS3D.UrdfClient({
+			ros : ros,
+			tfClient : tfClient,
+			path : 'http://resources.robotwebtools.org/',
+			rootObject : viewer.scene,
+			loader : ROS3D.COLLADA_LOADER
+		});
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// Create a UI slider using JQuery UI.
+		$('#speed-slider').slider({
+			range : 'min',
+			min : 0,
+			max : 100,
+			value : 90,
+			slide : function(event, ui) {
+				// Change the speed label.
+				$('#speed-label').html('Speed: ' + ui.value + '%');
+				// Scale the speed.
+				teleop.scale = (ui.value / 100.0);
+			}
+		});
+
+		// Set the initial speed .
+		$('#speed-label').html('Speed: ' + ($('#speed-slider').slider('value')) + '%');
+		teleop.scale = ($('#speed-slider').slider('value') / 100.0);
+
+		init_flag = false;
+	}
+}
+
+</script>
+</head>
+
+<body onload="init()">
+  <h1>Web-browser keyboard teleoperation</h1>
+
+	<form >
+		Teleop topic:<br>
+		<input type="text" name="Teleop Topic" id='tele_topic' value="/cmd_vel">
+		<br>
+		Base frame:<br>
+		<input type="text" name="Base frame" id='base_frame_name' value="/odom">
+		<br>
+	 <input type="button" onmousedown="submit_values()" value="Submit"> 
+	</form> 
+
+  <p>Run the following commands in the terminal then refresh this page. Check the JavaScript
+    console for the output.</p>
+  <ol>
+    <li><tt>roslaunch mrobot_gazebo view_mrobot_with_kinect_gazebo.launch </tt></li>
+    <li><tt>rosrun tf2_web_republisher tf2_web_republisher </tt></li>
+    <li><tt>roslaunch rosbridge_server rosbridge_websocket.launch</tt></li>
+    <li>Use WASD on your keyboard to move the robot (must have this browser window focused).</li>
+  </ol>
+  <div id="speed-label"></div>
+  <div id="speed-slider"></div>
+  <div id="urdf"></div>
+</body>
+
+</html>

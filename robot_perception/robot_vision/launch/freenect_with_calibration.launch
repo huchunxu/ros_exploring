@@ -1,0 +1,25 @@
+<launch>
+
+    <!-- Launch the freenect driver -->
+    <include file="$(find freenect_launch)/launch/freenect.launch">
+        <arg name="publish_tf"                      value="false" /> 
+
+        <!-- use device registration -->
+        <arg name="depth_registration"              value="true" /> 
+
+        <arg name="rgb_processing"                  value="true" />
+        <arg name="ir_processing"                   value="false" />
+        <arg name="depth_processing"                value="false" />
+        <arg name="depth_registered_processing"     value="true" />
+        <arg name="disparity_processing"            value="false" />
+        <arg name="disparity_registered_processing" value="false" />
+        <arg name="sw_registered_processing"        value="false" />
+        <arg name="hw_registered_processing"        value="true" />
+
+        <arg name="rgb_camera_info_url"
+             value="file://$(find robot_vision)/kinect_rgb_calibration.yaml" />
+        <arg name="depth_camera_info_url"
+             value="file://$(find robot_vision)/kinect_depth_calibration.yaml" />
+    </include>
+
+</launch>

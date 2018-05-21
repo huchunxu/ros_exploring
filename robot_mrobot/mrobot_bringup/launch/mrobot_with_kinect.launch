@@ -1,0 +1,32 @@
+<launch>
+
+    <!-- 启动MRobot -->
+    <node pkg="mrobot_bringup" type="mrobot_bringup" name="mrobot_bringup" output="screen" />
+
+    <!-- 加载机器人模型参数 -->
+    <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find mrobot_description)/urdf/mrobot_with_kinect.urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />  
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="state_publisher">
+        <param name="publish_frequency" type="double" value="5.0" />
+    </node>
+    <node name="base2laser" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 1 /base_link /laser 50"/>
+
+    <!-- 里程计估算 -->
+    <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+        <remap from="robot_pose_ekf/odom_combined" to="odom_combined"/>
+        <param name="freq" value="10.0"/>
+        <param name="sensor_timeout" value="1.0"/>
+        <param name="publish_tf" value="true"/>
+        <param name="odom_used" value="true"/>
+        <param name="imu_used" value="false"/>
+        <param name="vo_used" value="false"/>
+        <param name="output_frame" value="odom"/>
+    </node>
+
+    <!-- 运行Kinect驱动 -->
+    <include file="$(find mrobot_bringup)/launch/fake_laser_freenect.launch" />
+
+</launch>
