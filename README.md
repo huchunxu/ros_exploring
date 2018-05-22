@@ -14,9 +14,9 @@
 | ros2              | ROS2功能包（不能放置在ROS1的工作空间下，否则会报错）| 
 
 更多内容请访问：
-微信公众号：古月居
-个人网站：http://www.guyuehome.com/
-知乎主页：https://www.zhihu.com/people/guyuehome
+> * 微信公众号：古月居
+> * 个人网站：http://www.guyuehome.com/
+> * 知乎主页：https://www.zhihu.com/people/guyuehome
 
 ------
 > 怕什么真理无穷，进一寸有一寸的欢喜。 —— 胡适
