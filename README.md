@@ -15,6 +15,7 @@
 
 更多内容请访问：
 > * 微信公众号：古月居
+> * 新浪微博：古月春旭
 > * 个人网站：http://www.guyuehome.com/
 > * 知乎主页：https://www.zhihu.com/people/guyuehome
 
