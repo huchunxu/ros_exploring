@@ -1,0 +1,19 @@
+# retreieves various metadata for an model id
+
+# the id of the model
+int32 model_id
+
+---
+
+# the outcome of the query
+DatabaseReturnCode return_code
+
+# the tags of the model
+string[] tags
+
+# the name of the model
+string name
+
+# the maker of the model
+string maker
+

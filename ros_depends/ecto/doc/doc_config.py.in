@@ -1,0 +1,24 @@
+version='${${PROJECT_NAME}_GITTAG_SHORT}'
+commithash='${${PROJECT_NAME}_COMMITHASH}'
+gittag_short='${${PROJECT_NAME}_GITTAG_SHORT}'
+gittag_long='${${PROJECT_NAME}_GITTAG_LONG}'
+git_lastmod='${${PROJECT_NAME}_LAST_MODIFIED}'
+github_url='${${PROJECT_NAME}_GITHUB_URL}'
+
+breathe_default_project = '${PROJECT_NAME}'
+breathe_projects = dict(ecto='${CMAKE_CURRENT_BINARY_DIR}/../api/xml')
+
+# for debug: this is only if you build everything locally
+#ecto_module_url_root = '${CMAKE_CURRENT_BINARY_DIR}/../../doc/html/'
+# for release
+ecto_module_url_root = 'http://plasmodic.github.com/'
+
+intersphinx_mapping = {
+                       'ectoimagepipeline': (ecto_module_url_root + 'ecto_image_pipeline', None),
+                       'ectoopenni': (ecto_module_url_root + 'ecto_openni', None),
+                       'ectoopencv': (ecto_module_url_root + 'ecto_opencv', None),
+                       'ectopcl': (ecto_module_url_root + 'ecto_pcl', None),
+                       'ectoros': (ecto_module_url_root + 'ecto_ros', None),
+                       }
+
+programoutput_path = '${DOC_SOURCE_DIRS}'.split(';')

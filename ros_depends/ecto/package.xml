@@ -1,0 +1,20 @@
+<package>
+  <name>ecto</name>
+  <version>0.6.12</version>
+  <description>Ecto is a hybrid C++/Python development framework for constructing and maintaining pipelines.</description>
+  <author email="erublee@willowgarage.com">Ethan Rublee</author>
+  <author email="straszheim@willowgarage.com">Troy Straszheim</author>
+  <maintainer email="vincent.rabaud@gmail.com">Vincent Rabaud</maintainer>
+  <maintainer email="stonier@yujinrobot.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+
+  <url>http://plasmodic.github.io/ecto/</url>
+  <build_depend>boost</build_depend>
+  <build_depend>python</build_depend>
+
+  <run_depend>boost</run_depend>
+  <run_depend>python</run_depend>
+  <run_depend>python-xdot</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

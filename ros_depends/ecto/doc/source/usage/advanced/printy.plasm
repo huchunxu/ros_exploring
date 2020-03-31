@@ -1,0 +1,6 @@
+22 serialization::archive 7 0 0 0 0 3 0 0 0 0 0 1 18 hello_ecto::Reader 18 hello_ecto::Reader 0 0 0 0 0 0 0 0 1 0 0 0 6 output 0 1 8 1 0
+0 11 std::string 23 Output from standard in 0  1 19 hello_ecto::Printer 19 hello_ecto::Printer 1 0 3 str 8
+1 11 std::string 27 The default string to print 7 default 1 0 3 str 8
+2 11 std::string 20 The string to print. 7 default 0 0 2 19 hello_ecto::Printer 19 hello_ecto::Printer 1 0 3 str 8
+3 11 std::string 27 The default string to print 7 default 1 0 3 str 8
+4 11 std::string 20 The string to print. 7 default 0 0 0 0 2 0 0 0 0 6 output 1 3 str 0 6 output 2 3 str

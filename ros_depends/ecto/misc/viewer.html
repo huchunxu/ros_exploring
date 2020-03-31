@@ -1,0 +1,29 @@
+<html>
+<body>
+<img src="0000.svg" width="90%" id="ectograph"/>
+
+<p id="framename"> </p>
+
+<script type="text/javascript">
+var maxindex=MAXINDEX;
+var i=0;
+
+var fname = document.getElementById("framename").innerHTML;
+
+function increment() {
+  var s = "000000000000000" + i;
+  var img = document.getElementById("ectograph");
+  fname = s.substr(s.length - 4) + ".svg";
+  img.src = fname;
+
+
+  i += 1;
+  if (i == maxindex) i = 0;
+}
+
+var nterval = self.setInterval("increment()", 100);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Stores information about a saved scan of an object to the database
+
+# the id of the model
+int32 scaled_model_id
+
+# The ground truth location of the object represented by the point cloud
+geometry_msgs/PoseStamped ground_truth_pose
+
+# The location of the bagfile storing the scan
+string bagfile_location
+
+# The string name of the source of the scan data
+string scan_source
+
+# The topic in the bag that the cloud is published on 
+string cloud_topic
+
+---
+
+# the outcome of the query
+DatabaseReturnCode return_code

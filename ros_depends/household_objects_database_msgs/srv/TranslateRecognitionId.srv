@@ -1,0 +1,9 @@
+string recognition_id
+---
+int32 household_objects_id
+
+int32 SUCCESS=0
+int32 ID_NOT_FOUND
+int32 DATABASE_ERROR
+int32 OTHER_ERROR
+int32 result

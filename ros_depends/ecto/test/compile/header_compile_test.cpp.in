@@ -1,0 +1,3 @@
+#include <@HEADER@>
+
+int main(int, char**) { }
