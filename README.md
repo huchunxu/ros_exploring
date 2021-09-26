@@ -16,8 +16,8 @@
 更多内容请访问：
 > * 微信公众号：古月居
 > * 新浪微博：古月春旭
-> * 个人网站：http://www.guyuehome.com/
-> * 知乎主页：https://www.zhihu.com/people/guyuehome
+> * 古月居网站：http://www.guyuehome.com/
+> * 古月学院网站：https://class.guyuehome.com/
 
 ------
 > 怕什么真理无穷，进一寸有一寸的欢喜。 —— 胡适
