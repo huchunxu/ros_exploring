@@ -260,10 +260,10 @@
             <child link="front_caster_link"/>
         </joint>
 
-        <mrobot_standoff_2in parent="base_link" number="1" x_loc="-${standoff_x/2 + 0.03}" y_loc="-${standoff_y - 0.03}" z_loc="${plate_height/2}"/>
-        <mrobot_standoff_2in parent="base_link" number="2" x_loc="-${standoff_x/2 + 0.03}" y_loc="${standoff_y - 0.03}" z_loc="${plate_height/2}"/>
-        <mrobot_standoff_2in parent="base_link" number="3" x_loc="${standoff_x/2}" y_loc="-${standoff_y}" z_loc="${plate_height/2}"/>
-        <mrobot_standoff_2in parent="base_link" number="4" x_loc="${standoff_x/2}" y_loc="${standoff_y}" z_loc="${plate_height/2}"/>
+        <xacro:mrobot_standoff_2in parent="base_link" number="1" x_loc="-${standoff_x/2 + 0.03}" y_loc="-${standoff_y - 0.03}" z_loc="${plate_height/2}"/>
+        <xacro:mrobot_standoff_2in parent="base_link" number="2" x_loc="-${standoff_x/2 + 0.03}" y_loc="${standoff_y - 0.03}" z_loc="${plate_height/2}"/>
+        <xacro:mrobot_standoff_2in parent="base_link" number="3" x_loc="${standoff_x/2}" y_loc="-${standoff_y}" z_loc="${plate_height/2}"/>
+        <xacro:mrobot_standoff_2in parent="base_link" number="4" x_loc="${standoff_x/2}" y_loc="${standoff_y}" z_loc="${plate_height/2}"/>
 
         <joint name="plate_1_joint" type="fixed">
             <origin xyz="0 0 ${plate_height}" rpy="0 0 0" />
@@ -296,10 +296,10 @@
         </link>
 
 
-        <mrobot_standoff_2in parent="standoff_2in_1_link" number="5" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
-        <mrobot_standoff_2in parent="standoff_2in_2_link" number="6" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
-        <mrobot_standoff_2in parent="standoff_2in_3_link" number="7" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
-        <mrobot_standoff_2in parent="standoff_2in_4_link" number="8" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
+        <xacro:mrobot_standoff_2in parent="standoff_2in_1_link" number="5" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
+        <xacro:mrobot_standoff_2in parent="standoff_2in_2_link" number="6" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
+        <xacro:mrobot_standoff_2in parent="standoff_2in_3_link" number="7" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
+        <xacro:mrobot_standoff_2in parent="standoff_2in_4_link" number="8" x_loc="0" y_loc="0" z_loc="${plate_height}"/>
 
         <joint name="plate_2_joint" type="fixed">
             <origin xyz="0 0 ${plate_height}" rpy="0 0 0" />

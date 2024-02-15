@@ -2,38 +2,38 @@
 # Install the prerequisites for the ROS exploring code
 
 sudo apt-get install \
-ros-kinetic-openni-* \
-ros-kinetic-openni2-* 
-ros-kinetic-freenect-* 
-ros-kinetic-usb-cam \
-ros-kinetic-laser-*  \
-ros-kinetic-slam-gmapping \
-ros-kinetic-joystick-drivers 
-ros-kinetic-orocos-kdl  \
-ros-kinetic-python-orocos-kdl \
-ros-kinetic-dynamixel-motor-* \
-ros-kinetic-vision-opencv \
-ros-kinetic-depthimage-to-laserscan \
-ros-kinetic-arbotix-* \
-ros-kinetic-turtlebot-*
-ros-kinetic-move-base \
-ros-kinetic-map-server \
-ros-kinetic-fake-localization \
-ros-kinetic-amcl  \
-ros-kinetic-moveit-ros \
-ros-kinetic-ecto \
-ros-kinetic-manipulation-msgs \
-ros-kinetic-navigation \
-ros-kinetic-gazebo-ros-control \
-ros-kinetic-ros-controllers \
-ros-kinetic-ros-control \
-ros-kinetic-sound-play \
-ros-kinetic-slam-gmapping \
-ros-kinetic-moveit-visual-tools \
-ros-kinetic-moveit-simple-controller-manager \
-ros-kinetic-moveit-planners-ompl \
-ros-kinetic-moveit-fake-controller-manager \
-ros-kinetic-moveit-commander  \
+ros-noetic-openni-* \
+ros-noetic-openni2-* 
+ros-noetic-freenect-* 
+ros-noetic-usb-cam \
+ros-noetic-laser-*  \
+ros-noetic-slam-gmapping \
+ros-noetic-joystick-drivers 
+ros-noetic-orocos-kdl  \
+ros-noetic-python-orocos-kdl \
+ros-noetic-dynamixel-motor-* \
+ros-noetic-vision-opencv \
+ros-noetic-depthimage-to-laserscan \
+ros-noetic-arbotix-* \
+ros-noetic-turtlebot-*
+ros-noetic-move-base \
+ros-noetic-map-server \
+ros-noetic-fake-localization \
+ros-noetic-amcl  \
+ros-noetic-moveit-ros \
+ros-noetic-ecto \
+ros-noetic-manipulation-msgs \
+ros-noetic-navigation \
+ros-noetic-gazebo-ros-control \
+ros-noetic-ros-controllers \
+ros-noetic-ros-control \
+ros-noetic-sound-play \
+ros-noetic-slam-gmapping \
+ros-noetic-moveit-visual-tools \
+ros-noetic-moveit-simple-controller-manager \
+ros-noetic-moveit-planners-ompl \
+ros-noetic-moveit-fake-controller-manager \
+ros-noetic-moveit-commander  \
 python-rosinstall \
 python-setuptools  \
 python-opencv  \
